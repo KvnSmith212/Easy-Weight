@@ -1,0 +1,67 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="Easy_Weight.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+    <StackPanel HorizontalAlignment="Left"
+                Height="768"
+                VerticalAlignment="Top"
+                Width="480">
+        <StackPanel Height="100" 
+                    Background="{StaticResource LimeBrush}">
+            <Image Height="100"
+        		Source="/Assets/Images/logo.png"/>
+        </StackPanel>
+        <StackPanel>
+            <TextBlock TextWrapping="Wrap"
+        		Text="User Name,"
+        		Margin="40,40,0,0"
+                Style="{StaticResource PhoneTextTitle2Style}"/>
+            <TextBlock TextWrapping="Wrap"
+        		Text="You've lost/gained..."
+        		Margin="40,20,0,0"
+                Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock TextWrapping="Wrap"
+            	Text="__ pounds since yesterday,"
+            	Margin="40,20,0,0" 
+                Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock TextWrapping="Wrap"
+        		Text="__ pounds this week,"
+        		Margin="40,20,0,0" 
+                Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock TextWrapping="Wrap"
+        		Text="__ pounds since your first entry."
+        		Margin="40,20,0,0" 
+                Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock TextWrapping="Wrap"
+            	Text="Want to add a new entry?"
+            	Margin="40,40,0,0" 
+                Style="{StaticResource PhoneTextNormalStyle}"/>
+            <Grid Height="75" Margin="25,20,0,40">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBox x:Name="addEntryText"
+            		TextWrapping="Wrap" InputScope="Number" />
+                <Button x:Name="addEntryButton" Content="Add Entry"
+            		Grid.Column="1"
+            		Width="250"
+            		HorizontalAlignment="Left"/>
+            </Grid>
+        </StackPanel>
+    </StackPanel>
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+
+</phone:PhoneApplicationPage>
