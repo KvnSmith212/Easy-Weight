@@ -9,6 +9,10 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Easy_Weight.Resources;
 
+using System.IO;
+using System.Threading.Tasks;
+using Windows.Storage;
+
 namespace Easy_Weight
 {
     public partial class MainPage : PhoneApplicationPage
@@ -22,19 +26,14 @@ namespace Easy_Weight
             //BuildLocalizedApplicationBar();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        private void Pivot_Loaded(object sender, RoutedEventArgs e)
         {
-            base.OnNavigatedTo(e);
 
-            while (this.NavigationService.BackStack.Any())
-            {
-                this.NavigationService.RemoveBackEntry();
-            }
         }
 
-        private void addEntryButton_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            weight.Text = new_weight.Text;
         }
     }
 }

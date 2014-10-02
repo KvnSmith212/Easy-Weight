@@ -11,7 +11,6 @@ C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight
 C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Easy_Weight_Debug_AnyCPU.xap
 C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\App.g.cs
 C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\MainPage.g.cs
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\Splash.g.cs
 C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\Easy Weight.g.resources
 C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\Easy_Weight.Resources.AppResources.resources
 C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\Easy Weight.csproj.GenerateResource.Cache
