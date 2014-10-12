@@ -17,7 +17,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="100" />
         </Grid.RowDefinitions>
-        
+
         <phone:Pivot HorizontalAlignment="Left"
                      VerticalAlignment="Top"
                      Loaded="Pivot_Loaded"
@@ -27,23 +27,41 @@
                              Header="Weight">
                 <Grid>
                     <TextBlock HorizontalAlignment="Left"
-                               Margin="20,50,0,0"
+                               Margin="20,0,0,0"
                                TextWrapping="Wrap"
                                Text="Current Weight:"
                                VerticalAlignment="Top"
                                FontSize="30"/>
                     <TextBlock x:Name="weight" 
                                HorizontalAlignment="Left"
-                               Margin="20,100,0,0"
+                               Margin="20,50,0,0"
                                TextWrapping="Wrap"
                                VerticalAlignment="Top"
-                               FontSize="60" Foreground="{StaticResource LimeBrush}" Loaded="weight_Loaded"/>
+                               FontSize="60" Loaded="weight_Loaded" Foreground="{StaticResource LimeBrush}"/>
                     <Image HorizontalAlignment="Left"
-                           Source="/Assets/Images/Happy_Turtle.png" Margin="0,165,0,-165">
+                           Source="/Assets/Images/Happy_Turtle.png" 
+                           Margin="0,55,0,-55">
                     </Image>
+                    <TextBlock HorizontalAlignment="Left"
+                               Margin="0,444,0,0"
+                               TextWrapping="Wrap"
+                               Text="Toward Goal Weight"
+                               VerticalAlignment="Top"
+                               Foreground="{StaticResource LimeBrush}"/>
+                    <TextBlock HorizontalAlignment="Left"
+                               Margin="0,498,0,-28"
+                               TextWrapping="Wrap"
+                               Text="Within Goal Weight"
+                               VerticalAlignment="Top"
+                               Foreground="Blue"/>
+                    <TextBlock HorizontalAlignment="Left"
+                               Margin="0,471,0,-1"
+                               TextWrapping="Wrap"
+                               Text="Away From Goal Weight"
+                               Foreground="Red"/>
                 </Grid>
             </phone:PivotItem>
-            
+
             <phone:PivotItem CacheMode="{x:Null}"
                              Header="New Entry"
                              Margin="12,28,12,-161">
@@ -54,13 +72,22 @@
                     <TextBox x:Name="new_weight" 
                              InputScope="Number" />
                     <Button Content="Add Entry?" 
-                            Margin="0,50,0,0" 
+                            Margin="0,20,0,0" 
                             Click="Button_Click" />
+                    <TextBlock 
+                        FontSize="25"
+                        Text="Would you like to add a goal weight?"
+                        Margin="0,20,0,0"/>
+                    <TextBox x:Name="new_goal"
+                             InputScope="Number" />
+                    <Button Content="Update Goal?"
+                            Margin="0,20,0,0"
+                            Click="Button_Click_1"/>
                 </StackPanel>
 
             </phone:PivotItem>
         </phone:Pivot>
-                
+
         <StackPanel Height="100" 
                     Grid.Row="1"
                     Background="{StaticResource LimeBrush}">
