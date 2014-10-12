@@ -36,9 +36,8 @@
                                HorizontalAlignment="Left"
                                Margin="20,100,0,0"
                                TextWrapping="Wrap"
-                               Text="205 pounds"
                                VerticalAlignment="Top"
-                               FontSize="60" Foreground="{StaticResource LimeBrush}"/>
+                               FontSize="60" Foreground="{StaticResource LimeBrush}" Loaded="weight_Loaded"/>
                     <Image HorizontalAlignment="Left"
                            Source="/Assets/Images/Happy_Turtle.png" Margin="0,165,0,-165">
                     </Image>
@@ -69,7 +68,5 @@
         		Source="/Assets/Images/logo.png"/>
         </StackPanel>
     </Grid>
-
-    <!--LayoutRoot is the root grid where all page content is placed-->
 
 </phone:PhoneApplicationPage>

@@ -1,19 +1,22 @@
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Assets\ApplicationIcon.png
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Assets\Tiles\FlipCycleTileLarge.png
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Assets\Tiles\FlipCycleTileMedium.png
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Assets\Tiles\FlipCycleTileSmall.png
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Assets\Tiles\IconicTileMediumLarge.png
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Assets\Tiles\IconicTileSmall.png
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Easy Weight.dll
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Easy Weight.pdb
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\AppManifest.xaml
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Properties\WMAppManifest.xml
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Easy_Weight_Debug_AnyCPU.xap
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\App.g.cs
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\MainPage.g.cs
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\Easy Weight.g.resources
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\Easy_Weight.Resources.AppResources.resources
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\Easy Weight.csproj.GenerateResource.Cache
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\Easy Weight.dll
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\Easy Weight.pdb
-C:\Users\kvnsm_000\Documents\Visual Studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\XapCacheFile.xml
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Assets\ApplicationIcon.png
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Assets\Tiles\FlipCycleTileLarge.png
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Assets\Tiles\FlipCycleTileMedium.png
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Assets\Tiles\FlipCycleTileSmall.png
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Assets\Tiles\IconicTileMediumLarge.png
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Assets\Tiles\IconicTileSmall.png
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Easy Weight.dll
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Easy Weight.pdb
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\AppManifest.xaml
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Properties\WMAppManifest.xml
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Easy_Weight_Debug_AnyCPU.xap
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Newtonsoft.Json.dll
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\Bin\Debug\Newtonsoft.Json.xml
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\App.g.cs
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\MainPage.g.cs
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\Easy Weight.g.resources
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\Easy_Weight.Resources.AppResources.resources
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\Easy Weight.csproj.GenerateResource.Cache
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\Easy Weight.dll
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\Easy Weight.pdb
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\XapCacheFile.xml
+C:\Users\kvnsm_000\documents\visual studio 2013\Projects\Easy Weight\Easy Weight\obj\Debug\Easy Weight.csprojResolveAssemblyReference.cache
