@@ -1,67 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Navigation;
+﻿using Easy_Weight.Model;
 using Microsoft.Phone.Controls;
-using Microsoft.Phone.Shell;
-using Easy_Weight.Resources;
-
+using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
-using Windows.Storage;
-
-using Easy_Weight.Model;
+using System.Windows;
 using System.Windows.Media;
 
 namespace Easy_Weight
 {
     public partial class MainPage : PhoneApplicationPage
     {
+        public WeightModel weights { get; set; }
+
         // Constructor
         public MainPage()
         {
             InitializeComponent();
         }
 
-        
-        public WeightModel weights { get; set; }
-        private async Task InitializeModel(){
-            weights = new WeightModel();
-            try
-            {
-                await weights.deserializeJsonAsync();
-            }
-            catch (FileNotFoundException e)
-            {
-                //So it's probably really bad form to just throw away an exception, but I don't really need to do anything in this case. Just ignore and move on.
-            }
-        }
-        
-
         private void Pivot_Loaded(object sender, RoutedEventArgs e)
         {
 
         }
 
-        
-        private async void Button_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                weights.weightList.Add(new_weight.Text.ToString());
-            }
-            catch (System.FormatException f)
-            {
-                //weights.weightList.Add(weights.weightList.Last());
-            }
-            Determine_Color();
-            //weight.Text = weights.weightList.Last();
-            await weights.writeJsonAsync();
-        }
-
+        /// <summary>
+        ///     Used to set the weight on the main page at startup.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void weight_Loaded(object sender, RoutedEventArgs e)
         {
             await InitializeModel();
@@ -73,11 +40,78 @@ namespace Easy_Weight
                 {
                     Determine_Color();
                 }
-       
+
             }
             weight.Text = weights.weightList.Last();
         }
 
+        /// <summary>
+        ///     Calls the deserialize method to initialize the weightlist.
+        /// </summary>
+        /// <returns></returns>
+        private async Task InitializeModel()
+        {
+            weights = new WeightModel();
+            try
+            {
+                await weights.deserializeJsonAsync();
+            }
+            catch (FileNotFoundException e)
+            {
+                //So it's probably really bad form to just throw away an exception, but I don't really need to do anything in this case. Just ignore and move on.
+            }
+        }
+
+        /// <summary>
+        ///     Tries to add a new weight entry and update the weight on the main page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                weights.weightList.Add(new_weight.Text.ToString());
+                Determine_Color();
+            }
+            catch (System.FormatException f)
+            {
+                if (weights.weightList.Count() > 1)
+                {
+                    weights.weightList.RemoveAt(weights.weightList.Count() - 1);
+                }
+            }
+            weight.Text = weights.weightList.Last();
+            await weights.writeJsonAsync();
+        }
+
+        /// <summary>
+        ///     Tries to update the goal weight, which is sotred at index 0 of the weight list.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            string currGoal = weights.weightList[0];
+            try
+            {
+                weights.weightList[0] = new_goal.Text.ToString();
+                Determine_Color();
+            }
+            catch (System.FormatException f)
+            {
+                weights.weightList[0] = currGoal;
+            }
+            catch (System.ArgumentOutOfRangeException f)
+            {
+                weights.weightList[0] = new_goal.Text.ToString();
+            }
+            await weights.writeJsonAsync();
+        }
+
+        /// <summary>
+        ///     Determines the color of the weight on the main page, based on whether the new entry is closer or farther away from the goal weight.
+        /// </summary>
         private void Determine_Color()
         {
             int currentI = Convert.ToInt16(weights.weightList.Last());
@@ -97,13 +131,6 @@ namespace Easy_Weight
             {
                 weight.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
             }
-        }
-
-        private async void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            weights.weightList[0] = new_goal.Text.ToString();
-            Determine_Color();
-            await weights.writeJsonAsync();
         }
     }
 }
