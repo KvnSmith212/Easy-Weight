@@ -1,4 +1,5 @@
-﻿using Easy_Weight.Model;
+﻿using Coding4Fun.Toolkit.Controls;
+using Easy_Weight.Model;
 using Microsoft.Phone.Controls;
 using System;
 using System.IO;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace Easy_Weight
 {
@@ -73,6 +75,14 @@ namespace Easy_Weight
             {
                 weights.weightList.Add(new_weight.Text.ToString());
                 Determine_Color();
+
+                ToastPrompt toast = new ToastPrompt();
+                toast.Title = "Easy Weight";
+                toast.Message = "Weight recorded successfully.";
+                toast.MillisecondsUntilHidden = 2000;
+                toast.ImageSource = new BitmapImage(new Uri("ApplicationIcon.png", UriKind.RelativeOrAbsolute));
+
+                toast.Show();
             }
             catch (System.FormatException f)
             {
@@ -80,6 +90,14 @@ namespace Easy_Weight
                 {
                     weights.weightList.RemoveAt(weights.weightList.Count() - 1);
                 }
+
+                ToastPrompt toast = new ToastPrompt();
+                toast.Title = "Easy Weight";
+                toast.Message = "Please input a positive whole number.";
+                toast.MillisecondsUntilHidden = 2000;
+                toast.ImageSource = new BitmapImage(new Uri("ApplicationIcon.png", UriKind.RelativeOrAbsolute));
+
+                toast.Show();
             }
             weight.Text = weights.weightList.Last();
             await weights.writeJsonAsync();
@@ -97,10 +115,26 @@ namespace Easy_Weight
             {
                 weights.weightList[0] = new_goal.Text.ToString();
                 Determine_Color();
+
+                ToastPrompt toast = new ToastPrompt();
+                toast.Title = "Easy Weight";
+                toast.Message = "New goal weight set.";
+                toast.MillisecondsUntilHidden = 2000;
+                toast.ImageSource = new BitmapImage(new Uri("ApplicationIcon.png", UriKind.RelativeOrAbsolute));
+
+                toast.Show();
             }
             catch (System.FormatException f)
             {
                 weights.weightList[0] = currGoal;
+
+                ToastPrompt toast = new ToastPrompt();
+                toast.Title = "Easy Weight";
+                toast.Message = "Please input a positive whole number.";
+                toast.MillisecondsUntilHidden = 2000;
+                toast.ImageSource = new BitmapImage(new Uri("ApplicationIcon.png", UriKind.RelativeOrAbsolute));
+
+                toast.Show();
             }
             catch (System.ArgumentOutOfRangeException f)
             {
@@ -122,15 +156,29 @@ namespace Easy_Weight
             if (currentI > goalI - 10 && currentI < goalI + 10)
             {
                 weight.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
+
+                BitmapImage tn = new BitmapImage(new Uri("/Assets/Images/BlueTurtle.png", UriKind.Relative));
+                turtle.Source = tn; 
             }
             else if (Math.Abs(currentI - goalI) < Math.Abs(lastI - goalI))
             {
                 weight.Foreground = new SolidColorBrush(Color.FromArgb(255, 140, 191, 35));
+
+                BitmapImage tn = new BitmapImage(new Uri("/Assets/Images/GreenTurtle.png", UriKind.Relative));
+                turtle.Source = tn; 
             }
             else
             {
                 weight.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
+
+                BitmapImage tn = new BitmapImage(new Uri("/Assets/Images/RedTurtle.png", UriKind.Relative));
+                turtle.Source = tn; 
             }
+        }
+
+        private void reset_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
