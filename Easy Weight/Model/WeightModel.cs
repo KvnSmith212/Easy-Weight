@@ -17,6 +17,11 @@ namespace Easy_Weight.Model
             weightList = new List<string>();
         }
 
+        public void clear()
+        {
+            weightList.Clear();
+        }
+
         /// <summary>
         ///     Saves the list of weight entries as a json file in the applications local folder.
         /// </summary>

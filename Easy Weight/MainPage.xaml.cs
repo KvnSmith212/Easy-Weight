@@ -178,7 +178,45 @@ namespace Easy_Weight
 
         private void reset_Click(object sender, RoutedEventArgs e)
         {
+            var messagePrompt = new MessagePrompt
+            {
+                Title = "WARNIGN",
+                Message = "Are you sure you want to delete all previous entries?",
+                IsCancelVisible = true
+            };
 
+            messagePrompt.Completed += messagePrompt_Completed;
+            messagePrompt.Show();
+        }
+
+        private async void messagePrompt_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
+        {
+            if (e.PopUpResult == PopUpResult.Ok)
+            {
+                weights.clear();
+
+                weight.Text = "000";
+                weights.weightList.Add("000");
+                await weights.writeJsonAsync();
+
+                ToastPrompt toast = new ToastPrompt();
+                toast.Title = "Easy Weight";
+                toast.Message = "Weights succesfully reset.";
+                toast.MillisecondsUntilHidden = 2000;
+                toast.ImageSource = new BitmapImage(new Uri("ApplicationIcon.png", UriKind.RelativeOrAbsolute));
+
+                toast.Show();
+            }
+            else
+            {
+                ToastPrompt toast = new ToastPrompt();
+                toast.Title = "Easy Weight";
+                toast.Message = "Weights not reset.";
+                toast.MillisecondsUntilHidden = 2000;
+                toast.ImageSource = new BitmapImage(new Uri("ApplicationIcon.png", UriKind.RelativeOrAbsolute));
+
+                toast.Show();
+            }
         }
     }
 }

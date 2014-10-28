@@ -37,7 +37,7 @@
                                Margin="20,50,0,0"
                                TextWrapping="Wrap"
                                VerticalAlignment="Top"
-                               FontSize="60" Loaded="weight_Loaded" Foreground="{StaticResource LimeBrush}"/>
+                               FontSize="90" Loaded="weight_Loaded" Foreground="{StaticResource LimeBrush}"/>
                     <Image x:Name="turtle" HorizontalAlignment="Left"
                            Source="/Assets/Images/GreenTurtle.png" 
                            Margin="3,45,-3,-45" RenderTransformOrigin="0.5,0.5">
