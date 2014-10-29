@@ -2,6 +2,7 @@
   <Deployment.Parts>
     <AssemblyPart x:Name="Easy Weight" Source="Easy Weight.dll" />
     <AssemblyPart x:Name="Coding4Fun.Toolkit.Controls" Source="Coding4Fun.Toolkit.Controls.dll" />
+    <AssemblyPart x:Name="Microsoft.Phone.Controls.Toolkit" Source="Microsoft.Phone.Controls.Toolkit.dll" />
     <AssemblyPart x:Name="Newtonsoft.Json" Source="Newtonsoft.Json.dll" />
   </Deployment.Parts>
 </Deployment>

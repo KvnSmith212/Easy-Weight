@@ -60,7 +60,13 @@ namespace Easy_Weight
             }
             catch (FileNotFoundException e)
             {
-                //So it's probably really bad form to just throw away an exception, but I don't really need to do anything in this case. Just ignore and move on.
+                ToastPrompt toast = new ToastPrompt();
+                toast.Title = "Easy Weight";
+                toast.Message = "No file to load. ";
+                toast.MillisecondsUntilHidden = 2000;
+                toast.ImageSource = new BitmapImage(new Uri("ApplicationIcon.png", UriKind.RelativeOrAbsolute));
+
+                toast.Show();
             }
         }
 
@@ -93,7 +99,7 @@ namespace Easy_Weight
 
                 ToastPrompt toast = new ToastPrompt();
                 toast.Title = "Easy Weight";
-                toast.Message = "Please input a positive whole number.";
+                toast.Message = "Please input a whole number.";
                 toast.MillisecondsUntilHidden = 2000;
                 toast.ImageSource = new BitmapImage(new Uri("ApplicationIcon.png", UriKind.RelativeOrAbsolute));
 
@@ -130,7 +136,7 @@ namespace Easy_Weight
 
                 ToastPrompt toast = new ToastPrompt();
                 toast.Title = "Easy Weight";
-                toast.Message = "Please input a positive whole number.";
+                toast.Message = "Please input a whole number.";
                 toast.MillisecondsUntilHidden = 2000;
                 toast.ImageSource = new BitmapImage(new Uri("ApplicationIcon.png", UriKind.RelativeOrAbsolute));
 
@@ -160,7 +166,7 @@ namespace Easy_Weight
                 BitmapImage tn = new BitmapImage(new Uri("/Assets/Images/BlueTurtle.png", UriKind.Relative));
                 turtle.Source = tn; 
             }
-            else if (Math.Abs(currentI - goalI) < Math.Abs(lastI - goalI))
+            else if (weights.weightList.Count < 3 || Math.Abs(currentI - goalI) < Math.Abs(lastI - goalI))
             {
                 weight.Foreground = new SolidColorBrush(Color.FromArgb(255, 140, 191, 35));
 
