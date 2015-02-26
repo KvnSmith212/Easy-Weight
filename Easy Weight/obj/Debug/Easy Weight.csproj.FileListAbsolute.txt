@@ -95,3 +95,5 @@ C:\Users\Kevin\Documents\Visual Studio 2013\Projects\Easy-Weight\Easy Weight\Bin
 C:\Users\Kevin\Documents\Visual Studio 2013\Projects\Easy-Weight\Easy Weight\Bin\Debug\vi-VN\Microsoft.Phone.Controls.Toolkit.resources.dll
 C:\Users\Kevin\Documents\Visual Studio 2013\Projects\Easy-Weight\Easy Weight\Bin\Debug\zh-CN\Microsoft.Phone.Controls.Toolkit.resources.dll
 C:\Users\Kevin\Documents\Visual Studio 2013\Projects\Easy-Weight\Easy Weight\Bin\Debug\zh-TW\Microsoft.Phone.Controls.Toolkit.resources.dll
+C:\Users\Kevin\Documents\Visual Studio 2013\Projects\Easy-Weight\Easy Weight\Bin\Debug\Syncfusion.SfChart.WP8.dll
+C:\Users\Kevin\Documents\Visual Studio 2013\Projects\Easy-Weight\Easy Weight\Bin\Debug\Syncfusion.SfChart.WP8.xml

@@ -1,20 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Threading.Tasks;
+using System.Windows;
 using Windows.Storage;
+using Syncfusion.UI.Xaml.Charts;
 
 namespace Easy_Weight.Model
 {
+    public class WeightEntry
+    {
+        public int weight { get; set;}
+        public string entryNum { get; set; }
+    }
+
     public class WeightModel
     {
-        public List<String> weightList { get; private set; }
+        public ObservableCollection<WeightEntry> weightList { get; private set; }
         private const string WEIGHTJSONFILE = "weight.json";
 
         public WeightModel()
         {
-            weightList = new List<string>();
+            weightList = new ObservableCollection<WeightEntry>();
         }
 
         public void clear()
@@ -28,7 +38,7 @@ namespace Easy_Weight.Model
         /// <returns></returns>
         public async Task writeJsonAsync()
         {
-            var serializer = new DataContractJsonSerializer(typeof(List<String>));
+            var serializer = new DataContractJsonSerializer(typeof(ObservableCollection<WeightEntry>));
             using (var stream = await ApplicationData.Current.LocalFolder.OpenStreamForWriteAsync(
                 WEIGHTJSONFILE,
                 CreationCollisionOption.ReplaceExisting))
@@ -43,12 +53,15 @@ namespace Easy_Weight.Model
         /// <returns></returns>
         public async Task deserializeJsonAsync()
         {
-            var jsonSerializer = new DataContractJsonSerializer(typeof(List<String>));
+            Debug.WriteLine("USER DEBUG: deserializing json");
+
+            var jsonSerializer = new DataContractJsonSerializer(typeof(ObservableCollection<WeightEntry>));
             using (var myStream = await ApplicationData.Current.LocalFolder.OpenStreamForReadAsync(WEIGHTJSONFILE))
             {
-                weightList = (List<String>)jsonSerializer.ReadObject(myStream);
+                weightList = (ObservableCollection<WeightEntry>)jsonSerializer.ReadObject(myStream);
             }
 
+            Debug.WriteLine("USER DEBUG: deserialization successfull");
         }
     }
 }

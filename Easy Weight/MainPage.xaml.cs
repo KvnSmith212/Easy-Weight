@@ -2,12 +2,14 @@
 using Easy_Weight.Model;
 using Microsoft.Phone.Controls;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Syncfusion.UI.Xaml.Charts;
 
 namespace Easy_Weight
 {
@@ -33,9 +35,14 @@ namespace Easy_Weight
         /// <param name="e"></param>
         private async void weight_Loaded(object sender, RoutedEventArgs e)
         {
+            Debug.WriteLine("USER DEBUG: Loading main page");
+
             await InitializeModel();
             if (weights.weightList.Count() == 0)
-                weights.weightList.Add("000");
+            {
+                WeightEntry entry = new WeightEntry() { weight = 0, entryNum = "0" };
+                weights.weightList.Add(entry);
+            }
             else
             {
                 if (weights.weightList.Count() > 1)
@@ -44,7 +51,8 @@ namespace Easy_Weight
                 }
 
             }
-            weight.Text = weights.weightList.Last();
+
+            Debug.WriteLine("USER DEBUG: Main page loaded");
         }
 
         /// <summary>
@@ -53,6 +61,8 @@ namespace Easy_Weight
         /// <returns></returns>
         private async Task InitializeModel()
         {
+            Debug.WriteLine("USER DEBUG: Initializing model");
+
             weights = new WeightModel();
             try
             {
@@ -68,6 +78,8 @@ namespace Easy_Weight
 
                 toast.Show();
             }
+
+            Debug.WriteLine("USER DEBUG: Model initialized");
         }
 
         /// <summary>
@@ -79,7 +91,8 @@ namespace Easy_Weight
         {
             try
             {
-                weights.weightList.Add(new_weight.Text.ToString());
+                WeightEntry entry = new WeightEntry() { weight = Convert.ToInt32(new_weight.Text.ToString()), entryNum = Convert.ToString(weights.weightList.Count + 1) };
+                weights.weightList.Add(entry);
                 Determine_Color();
 
                 ToastPrompt toast = new ToastPrompt();
@@ -105,7 +118,7 @@ namespace Easy_Weight
 
                 toast.Show();
             }
-            weight.Text = weights.weightList.Last();
+            weight.Text = weights.weightList.Last().weight.ToString();
             await weights.writeJsonAsync();
         }
 
@@ -116,10 +129,11 @@ namespace Easy_Weight
         /// <param name="e"></param>
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            string currGoal = weights.weightList[0];
+            string currGoal = weights.weightList[0].weight.ToString();
             try
             {
-                weights.weightList[0] = new_goal.Text.ToString();
+                WeightEntry entry = new WeightEntry() { weight = Convert.ToInt32(new_goal.Text.ToString()), entryNum = "0" };
+                weights.weightList[0] = entry;
                 Determine_Color();
 
                 ToastPrompt toast = new ToastPrompt();
@@ -132,7 +146,7 @@ namespace Easy_Weight
             }
             catch (System.FormatException f)
             {
-                weights.weightList[0] = currGoal;
+                weights.weightList[0].weight = Convert.ToInt32(currGoal);
 
                 ToastPrompt toast = new ToastPrompt();
                 toast.Title = "Easy Weight";
@@ -144,7 +158,7 @@ namespace Easy_Weight
             }
             catch (System.ArgumentOutOfRangeException f)
             {
-                weights.weightList[0] = new_goal.Text.ToString();
+                weights.weightList[0].weight = Convert.ToInt32(new_goal.Text.ToString());
             }
             await weights.writeJsonAsync();
         }
@@ -154,31 +168,22 @@ namespace Easy_Weight
         /// </summary>
         private void Determine_Color()
         {
-            int currentI = Convert.ToInt16(weights.weightList.Last());
-            int lastI = Convert.ToInt16(weights.weightList[weights.weightList.Count() - 2]);
-            int goalI = Convert.ToInt16(weights.weightList[0]);
+            int currentI = weights.weightList.Last().weight;
+            int lastI = weights.weightList[weights.weightList.Count() - 2].weight;
+            int goalI = weights.weightList[0].weight;
 
             //TODO: Figure out how to get the predefined brushes
             if (currentI > goalI - 10 && currentI < goalI + 10)
             {
                 weight.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 0, 255));
-
-                BitmapImage tn = new BitmapImage(new Uri("/Assets/Images/BlueTurtle.png", UriKind.Relative));
-                turtle.Source = tn; 
             }
             else if (weights.weightList.Count < 3 || Math.Abs(currentI - goalI) < Math.Abs(lastI - goalI))
             {
                 weight.Foreground = new SolidColorBrush(Color.FromArgb(255, 140, 191, 35));
-
-                BitmapImage tn = new BitmapImage(new Uri("/Assets/Images/GreenTurtle.png", UriKind.Relative));
-                turtle.Source = tn; 
             }
             else
             {
                 weight.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 0, 0));
-
-                BitmapImage tn = new BitmapImage(new Uri("/Assets/Images/RedTurtle.png", UriKind.Relative));
-                turtle.Source = tn; 
             }
         }
 
@@ -201,9 +206,10 @@ namespace Easy_Weight
             {
                 weights.clear();
 
-                weight.Text = "000";
-                weights.weightList.Add("000");
+                WeightEntry entry = new WeightEntry() { weight = 0, entryNum = "0" };
+                weights.weightList.Add(entry);
                 await weights.writeJsonAsync();
+                weight.Text = "";
 
                 ToastPrompt toast = new ToastPrompt();
                 toast.Title = "Easy Weight";
